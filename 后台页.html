@@ -6,7 +6,7 @@
 <title>后台页</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="./blog.css" rel="stylesheet">
+<link href="./css/blog.css" rel="stylesheet">
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
 </script>
 </head>
@@ -273,14 +273,52 @@
     </div>
     <div id="main3">
     	<div>
-    		<div>确认</div>
-    		<div>清除</div>
-    		<table id="condition"></table>
+    		<ul>
+    			<li>文章</li>
+    			<li>评论</li>
+    			<li>类别</li>
+    			<li>账户</li>
+    			<p class="clear"></p>
+    		</ul>
     	</div>
     	<div>
-    		<div>删除</div>
-    		<div>编辑</div>
-    		<div>增加</div>
+    		<div id="condition">
+    			<div class="table_button">确认</div>
+    			<div class="table_button">清除</div>
+    			<table>
+    				<tr>
+    					<td width=7%>
+    						<input type="checkbox" />
+    					</td>
+    					<td width=18%>
+    						<select>
+    							<option>标题</option>
+    							<option>创建时间</option>
+    							<option>用户昵称</option>
+    							<option>邮箱</option>
+    							<option>评论</option>
+    						</select>
+    					</td>
+    					<td width=18%>
+    						<select>
+    							<option>等于</option>
+    							<option>在…之间</option>
+    							<option>是</option>
+    							<option></option>
+    							<option></option>
+    						</select>
+    					</td>
+    					<td width=27%>1</td>
+    					<td width=27%>1</td>
+    					<td>1</td>
+    				</tr>
+    			</table>
+    		</div>
+    	</div>
+    	<div>
+    		<div class="table_button">删除</div>
+    		<div class="table_button">编辑</div>
+    		<div class="table_button">增加</div>
     		<table id="article_table">
     			<tr>
     				<th width=11%>序号</th>
@@ -335,39 +373,39 @@
     		</table>
     		<table id="comments_table">
     			<tr>
-    				<th>操作</th>
-    				<th>序号</th>
-    				<th>文章标题</th>
-    				<th>评论</th>
-    				<th>用户昵称</th>
-    				<th>邮箱</th>
+    				<th width=6%>操作</th>
+    				<th width=6%>序号</th>
+    				<th width=16%>文章标题</th>
+    				<th width=28%>评论</th>
+    				<th width=12%>用户昵称</th>
+    				<th width=15%>邮箱</th>
     				<th>创建时间</th>
     			</tr>
     		</table>
     		<table id="type_table1">
     			<tr>
-    				<th>操作</th>
-    				<th>序号</th>
-    				<th>父类名</th>
-    				<th>文章数</th>
+    				<th width=15%>操作</th>
+    				<th width=15%>序号</th>
+    				<th width=30%>父类名</th>
+    				<th width=20%>文章数</th>
     				<th>子类数量</th>
     			</tr>
     		</table>
     		<table id="type_table2">
     			<tr>
-    				<th>操作</th>
-    				<th>序号</th>
-    				<th>父类名</th>
-    				<th>子类名</th>
-    				<th>文章数</th>
+    				<th width=15%>操作</th>
+    				<th width=15%>序号</th>
+    				<th width=25%>父类名</th>
+    				<th width=25%>子类名</th>
+    				<th width=20%>文章数</th>
     			</tr>
     		</table>
     		<table id="account_table">
     			<tr>
-    				<th>操作</th>
-    				<th>序号</th>
-    				<th>帐号</th>
-    				<th>昵称</th>
+    				<th width=9%>操作</th>
+    				<th width=12%>序号</th>
+    				<th width=26%>帐号</th>
+    				<th width=26%>昵称</th>
     				<th>创建时间</th>
     			</tr>
     		</table>
@@ -613,6 +651,7 @@
     		main2.style.display="none";
     		main3.style.display="block";
     		formulabar.style.display="none";
+    		$("#article_table").css({display:"inline-table"});
     		resize();
     	}
     	//回到顶部
@@ -697,6 +736,44 @@
         		window.scrollTo(0,0);
         	}
         }
+
+
+        $(document).ready(function(){
+        	//main3导航滑动效果
+        	$("#main3 li:eq(0)").click(function(){
+        		$("#main3 ul p").animate({left:"12px"});
+        		$("#article_table").css({display:"inline-table"});
+        		$("#comments_table").css({display:"none"});
+        		$("#type_table1").css({display:"none"});
+        		$("#type_table2").css({display:"none"});
+        		$("#account_table").css({display:"none"});
+        	});
+        	$("#main3 li:eq(1)").click(function(){
+        		$("#main3 ul p").animate({left:"117px"});
+        		$("#article_table").css({display:"none"});
+        		$("#comments_table").css({display:"inline-table"});
+        		$("#type_table1").css({display:"none"});
+        		$("#type_table2").css({display:"none"});
+        		$("#account_table").css({display:"none"});
+        	});
+        	$("#main3 li:eq(2)").click(function(){
+        		$("#main3 ul p").animate({left:"222px"});
+        		$("#article_table").css({display:"none"});
+        		$("#comments_table").css({display:"none"});
+        		$("#type_table1").css({display:"inline-table"});
+        		$("#type_table2").css({display:"inline-table"});
+        		$("#account_table").css({display:"none"});
+        	});
+        	$("#main3 li:eq(3)").click(function(){
+        		$("#main3 ul p").animate({left:"327px"});
+        		$("#article_table").css({display:"none"});
+        		$("#comments_table").css({display:"none"});
+        		$("#type_table1").css({display:"none"});
+        		$("#type_table2").css({display:"none"});
+        		$("#account_table").css({display:"inline-table"});
+        	});
+        	//导航点击事件
+        });
     </script>
 </body>
 </html>

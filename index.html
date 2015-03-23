@@ -6,45 +6,47 @@
 <title>Blog首页</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="./blog.css" rel="stylesheet">
+<link href="./css/blog.css" rel="stylesheet">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+</script>
 </head>
 <body>
     <div id="sidebar">
     	<ul>
-    		<li class="nav" id="nav_top">静</li>
-            <li class="nav">
+    		<li class="nav navup" id="nav_top">静</li>
+            <li class="nav navup">
                 <img src="./img/home.png" />
             </li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/clock_white.png" />
     			<div>
-    				<ul>
-    					<li><a href="">2014-01 (0)</a></li>
-    					<li><a href="">2014-02 (0)</a></li>
-    					<li><a href="">2014-03 (0)</a></li>
-    					<li><a href="">2014-04 (0)</a></li>
-    					<li><a href="">2014-05 (0)</a></li>
-    					<li><a href="">2014-06 (0)</a></li>
-    					<li><a href="">2014-07 (0)</a></li>
-    					<li><a href="">2014-08 (0)</a></li>
-    					<li><a href="">2014-09 (0)</a></li>
-    					<li><a href="">2014-10 (0)</a></li>
-    					<li><a href="">2014-11 (0)</a></li>
-    					<li><a href="">2014-12 (0)</a></li>
+    				<ul id="sort_by_date">
+    					<li>2014-01 (0)</li>
+    					<li>2014-02 (0)</li>
+    					<li>2014-03 (0)</li>
+    					<li>2014-04 (0)</li>
+    					<li>2014-05 (0)</li>
+    					<li>2014-06 (0)</li>
+    					<li>2014-07 (0)</li>
+    					<li>2014-08 (0)</li>
+    					<li>2014-09 (0)</li>
+    					<li>2014-10 (0)</li>
+    					<li>2014-11 (0)</li>
+    					<li>2014-12 (0)</li>
     				</ul>
     			</div>
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/menu_white.png" />
     			<div>
-    				<ul>
-    					<li><a href="">Js (0)</a></li>
-    					<li><a href="">Html5 (0)</a></li>
-    					<li><a href="">JQuery (0)</a></li>
+    				<ul id="sort_by_class">
+    					<li>Js (0)</li>
+    					<li>Html5 (0)</li>
+    					<li>JQuery (0)</li>
     				</ul>
     			</div>
     		</li>
-            <li class="nav nav_end">
+            <li class="nav" id="nav_end">
                 <img src="./img/up.png" />
             </li>
     	</ul>
@@ -58,7 +60,7 @@
     	<div class="fill"></div>
     	<ul id="content">
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -70,7 +72,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -82,7 +84,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -94,7 +96,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -106,7 +108,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -118,7 +120,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -130,7 +132,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -142,7 +144,7 @@
     			</p>
     		</li>
     		<li>
-    			<h1>标题1</h1>
+    			<h1 class="article_entrance">标题1</h1>
     			<p class="intro">此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”此处为内容，限定字数，提取足够字数后加“…”</p>
     			<p class="else">
     				<p class="count">
@@ -174,11 +176,64 @@
     		fill[1].style.width=(base-65-600)/2+"px";
     	}
 
+        //拉动条影响的可视窗口变化
+        function resize(anchor){
+            base=document.body.clientWidth;
+            title.style.width=base-65+"px";
+            main.style.width=base-65+"px";
+            fill[0].style.width=(base-65-600)/2+"px";
+            fill[1].style.width=(base-65-600)/2+"px";
+            if(!anchor){window.scrollTo(0,0)}
+            else window.scrollTo(0,anchor);
+        }
+
         //侧栏功能
+        var xhr=new XMLHttpRequest();
         var nav=document.getElementsByClassName("nav");
+        nav[1].onclick=function(){
+            window.open("./index.html","_self");
+        }
+        for(var i=0;i<$("#sort_by_date li").length;i++){
+            $("#sort_by_date li:eq("+i+")").click(function(){
+                $("#content").html("");
+                resize();
+            });
+        }
+        for(var i=0;i<$("#sort_by_class li").length;i++){
+            $("#sort_by_class li:eq("+i+")").click(function(){
+                $("#content").html("");
+                resize();
+            });
+        }
         nav[4].onclick=function(){
             window.scrollTo(0,0);
         }
+        nav[4].onmouseover=function(){
+            this.style.backgroundColor="#cccccc";
+        }
+        nav[4].onmouseout=function(){
+            this.style.backgroundColor="#e78170";
+            if(document.body.scrollTop==0)
+                this.style.backgroundColor="#414141";
+        }
+        window.onscroll=function(){
+            if(document.body.scrollTop!=0)
+                nav[4].style.backgroundColor="#e78170";
+            else
+                nav[4].style.backgroundColor="#414141";
+        }
+        if(document.body.scrollTop!=0)
+                nav[4].style.backgroundColor="#e78170";
+
+        //文章入口
+        for(var i=0;i<$(".article_entrance").length;i++){
+            $(".article_entrance:eq("+i+")").click(function(){
+                window.open("./article.html","_self");
+            });
+        }
+        $(".about_me").click(function(){
+            window.open("./article.html","_self");
+        });
     </script>
 </body>
 </html>

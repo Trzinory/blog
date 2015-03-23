@@ -13,14 +13,14 @@
 <body>
     <div id="sidebar">
     	<ul>
-    		<li class="nav" id="nav_top">静</li>
-    		<li class="nav" id="backwards">
+    		<li class="nav navup" id="nav_top">静</li>
+    		<li class="nav navup" id="backwards">
     			<img src="./img/back_white.png">
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/home.png" />
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/clock_white.png" />
     			<div>
     				<ul>
@@ -39,7 +39,7 @@
     				</ul>
     			</div>
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/menu_white.png" />
     			<div>
     				<ul>
@@ -49,13 +49,13 @@
     				</ul>
     			</div>
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/pencil.png" />
     		</li>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/table.png" />
     		</li>
-    		<li class="nav nav_end">
+    		<li class="nav" id="nav_end">
     			<img src="./img/up.png" />
     		</li>
     	</ul>
@@ -287,10 +287,10 @@
     			<div class="table_button">清除</div>
     			<table>
     				<tr>
-    					<td width=7%>
+    					<td width="7%">
     						<input type="checkbox" />
     					</td>
-    					<td width=18%>
+    					<td width="18%">
     						<select>
     							<option>标题</option>
     							<option>创建时间</option>
@@ -299,7 +299,7 @@
     							<option>评论</option>
     						</select>
     					</td>
-    					<td width=18%>
+    					<td width="18%">
     						<select>
     							<option>等于</option>
     							<option>在…之间</option>
@@ -308,8 +308,8 @@
     							<option></option>
     						</select>
     					</td>
-    					<td width=27%>1</td>
-    					<td width=27%>1</td>
+    					<td width="27%">1</td>
+    					<td width="27%">1</td>
     					<td>1</td>
     				</tr>
     			</table>
@@ -321,14 +321,14 @@
     		<div class="table_button">增加</div>
     		<table id="article_table">
     			<tr>
-    				<th width=11%>序号</th>
-    				<th width=22%>标题</th>
-    				<th width=13%>创建时间</th>
-    				<th width=10%>阅读数</th>
-    				<th width=10%>评论数</th>
-    				<th width=10%>字数</th>
-    				<th width=12%>父类</th>
-    				<th width=12%>子类</th>
+    				<th width="11%">序号</th>
+    				<th width="22%">标题</th>
+    				<th width="13%">创建时间</th>
+    				<th width="10%">阅读数</th>
+    				<th width="10%">评论数</th>
+    				<th width="10%">字数</th>
+    				<th width="12%">父类</th>
+    				<th width="12%">子类</th>
     			</tr>
     			<tr>
     				<td>1</td>
@@ -373,39 +373,39 @@
     		</table>
     		<table id="comments_table">
     			<tr>
-    				<th width=6%>操作</th>
-    				<th width=6%>序号</th>
-    				<th width=16%>文章标题</th>
-    				<th width=28%>评论</th>
-    				<th width=12%>用户昵称</th>
-    				<th width=15%>邮箱</th>
+    				<th width="6%">操作</th>
+    				<th width="6%">序号</th>
+    				<th width="16%">文章标题</th>
+    				<th width="28%">评论</th>
+    				<th width="12%">用户昵称</th>
+    				<th width="15%">邮箱</th>
     				<th>创建时间</th>
     			</tr>
     		</table>
     		<table id="type_table1">
     			<tr>
-    				<th width=15%>操作</th>
-    				<th width=15%>序号</th>
-    				<th width=30%>父类名</th>
-    				<th width=20%>文章数</th>
+    				<th width="15%">操作</th>
+    				<th width="15%">序号</th>
+    				<th width="30%">父类名</th>
+    				<th width="20%">文章数</th>
     				<th>子类数量</th>
     			</tr>
     		</table>
     		<table id="type_table2">
     			<tr>
-    				<th width=15%>操作</th>
-    				<th width=15%>序号</th>
-    				<th width=25%>父类名</th>
-    				<th width=25%>子类名</th>
-    				<th width=20%>文章数</th>
+    				<th width="15%">操作</th>
+    				<th width="15%">序号</th>
+    				<th width="25%">父类名</th>
+    				<th width="25%">子类名</th>
+    				<th width="20%">文章数</th>
     			</tr>
     		</table>
     		<table id="account_table">
     			<tr>
-    				<th width=9%>操作</th>
-    				<th width=12%>序号</th>
-    				<th width=26%>帐号</th>
-    				<th width=26%>昵称</th>
+    				<th width="9%">操作</th>
+    				<th width="12%">序号</th>
+    				<th width="26%">帐号</th>
+    				<th width="26%">昵称</th>
     				<th>创建时间</th>
     			</tr>
     		</table>

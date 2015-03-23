@@ -6,15 +6,17 @@
 <title>博文页</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="./blog.css" rel="stylesheet">
+<link href="./css/blog.css" rel="stylesheet">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+</script>
 </head>
 <body>
     <div id="sidebar">
     	<ul>
-    		<li class="nav">
+    		<li class="nav navup">
     			<img src="./img/back_white.png">
     		</li>
-            <li class="nav nav_end">
+            <li class="nav" id="nav_end">
                 <img src="./img/up.png" />
             </li>
     	</ul>
@@ -47,18 +49,53 @@
     				<p>只是，没有了中端设备，安卓手机制造商也就失去了进化的方向和可能。</p>
     			</div>
     		</div>
-    		<textarea id="comment" maxlength="500" placeholder="请输入评论"></textarea>
+    		<div id="comment" contenteditable></div>
     		<div id="edit">
     			<div id="send_message">发表评论</div>
     			<div id="face">
     				<img src="./img/smiley.png" />
-    				<div id="face_box"></div>
+    				<div>
+    					<div id="expression">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    						<img src="./img/face1.png">
+    					</div>
+                    </div>
     			</div>
-    			<div class="box">
+    			<div class="input_box">
     				<img src="./img/user.png" />
     				<input type="text" placeholder="请输入昵称" />
     			</div>
-    			<div class="box" id="email_box">
+    			<div class="input_box" id="email_box">
     				<img src="./img/email.png" />
     				<input type="text" placeholder="请输入邮箱" />
     			</div>
@@ -121,8 +158,41 @@
 
         //侧栏功能
         var nav=document.getElementsByClassName("nav");
+        nav[0].onclick=function(){
+            window.history.back();
+        }
         nav[1].onclick=function(){
             window.scrollTo(0,0);
+        }
+        nav[1].onmouseover=function(){
+            this.style.backgroundColor="#cccccc";
+        }
+        nav[1].onmouseout=function(){
+            this.style.backgroundColor="#e78170";
+            if(document.body.scrollTop==0)
+                this.style.backgroundColor="#414141";
+        }
+        window.onscroll=function(){
+            if(document.body.scrollTop!=0)
+                nav[1].style.backgroundColor="#e78170";
+            else
+                nav[1].style.backgroundColor="#414141";
+        }
+        if(document.body.scrollTop!=0)
+                nav[1].style.backgroundColor="#e78170";
+
+        //评论栏功能
+        var comment=document.getElementById("comment");
+        var pos=0;
+        for(var i=0;i<$("#expression img").length;i++){
+        	$("#expression img:eq("+i+")").click(function(){
+        		var img=document.createElement("img");
+        		img.src=this.src;
+        		//comment.focus();
+        		var pos=window.getSelection().anchorOffset;
+        		var range=window.getSelection().getRangeAt(0);
+        		range.insertNode(img);
+        	});
         }
     </script>
 </body>

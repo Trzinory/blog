@@ -186,12 +186,12 @@
         var pos=0;
         for(var i=0;i<$("#expression img").length;i++){
         	$("#expression img:eq("+i+")").click(function(){
-        		var img=document.createElement("img");
-        		img.src=this.src;
-        		//comment.focus();
-        		var pos=window.getSelection().anchorOffset;
-        		var range=window.getSelection().getRangeAt(0);
-        		range.insertNode(img);
+        		if(window.getSelection().containsNode(comment,true)){
+        			var img=document.createElement("img");
+        			img.src=this.src;
+        			var range=window.getSelection().getRangeAt(0);
+        			range.insertNode(img);
+        		}
         	});
         }
     </script>

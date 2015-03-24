@@ -8,7 +8,6 @@ window.onload=function(){
     	var content2=document.getElementById("content2");
     	var formulabar=document.getElementById("formula_bar");
     	var titletop=document.getElementById("title_top");
-    	var popup=document.getElementById("popup");
     	var base=document.body.clientWidth;
         titletop.style.width=base-65+"px";
     	fill[0].style.width=(base-65-600)/2+"px";
@@ -47,6 +46,7 @@ window.onload=function(){
         }
 
         //编辑栏功能
+        var popup=document.getElementById("popup");
         var left=document.getElementsByClassName("nav2_left");
         var linkbox=document.getElementById("link_box");
         var picbox=document.getElementById("pic_box");
@@ -56,14 +56,18 @@ window.onload=function(){
         var lctup=document.getElementById("lctup");
         var itnup=document.getElementById("itnup");
         left[1].onclick=function(){
+            popup.style.display="block";
             picbox.style.display="none";
-            itnpic.style.display="none";
-            lctpic.style.display="block";
             linkbox.style.display="block";
+            $(".link input").attr("value","");
         }
         left[2].onclick=function(){
+            popup.style.display="block";
             linkbox.style.display="none";
             picbox.style.display="block";
+            itnpic.style.display="none";
+            lctpic.style.display="block";
+            $(".link input").attr("value","");
         }
 
         lctup.onclick=function(){
@@ -77,9 +81,11 @@ window.onload=function(){
 
         var popupcancel=document.getElementsByClassName("popup_cancel");
         popupcancel[0].onclick=function(){
+            popup.style.display="none";
             linkbox.style.display="none";
         }
         popupcancel[1].onclick=function(){
+            popup.style.display="none";
             picbox.style.display="none";
         }
 

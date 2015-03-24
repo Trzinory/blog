@@ -1,5 +1,5 @@
 @charset "UTF-8";
-* {padding:0;margin:0;font-family:"微软雅黑",Verdana,"黑体",Helvetica,"宋体"}
+	* {padding:0;margin:0;font-family:"微软雅黑",Verdana,"黑体",Helvetica,"宋体"}
 	h1 {margin-top:8px;}
 	a {text-decoration:none;color:black;}
 	ul {list-style-type:none;}
@@ -12,7 +12,10 @@
 		background-color: #414141;
 		z-index:999;
 	}
-	.nav {
+	#sidebar li {
+		cursor:pointer;
+	}
+	.navup {
 		width:50px;
 		height:50px;
 		padding:2px 7.5px 2px 7.5px;
@@ -33,16 +36,17 @@
 	#backwards {
 		display:none;
 	}
-	#nav_end:hover {
+	#nav_end {
+		width:65px;
+		height:50px;
+		padding:2px 0;
+		position:absolute;
+		bottom:0px;
 	}
 	.nav_empty {
 		width:50px;
 		height:50px;
 		margin:4px 7px;
-	}
-	.nav img {
-		width:50px;
-		height:50px;
 	}
 	.nav div {
 		display:none;
@@ -74,10 +78,6 @@
 	.nav:hover div {
 		display:block;
 	}
-	.nav_end {
-		position:fixed;
-		bottom:0px;
-	}
 	#title {
 		position:fixed;
 		margin-left:65px;
@@ -101,6 +101,13 @@
 	}
 	.about_me:hover {
 		background-color:grey;
+	}
+	#blog_name {
+		padding:6px 0;
+		margin-top:2px;
+		text-indent:10px;
+		font-size:26px;
+		cursor:default;
 	}
 	.search {
 		float:right;
@@ -262,7 +269,7 @@
 	#main3 {
 		display:none;
 		margin-left:65px;
-		padding-top:150px;
+		padding-top:75px;
 		color:#202020;
 	}
 	#more {
@@ -277,7 +284,7 @@
 		font-size:18px;
 		color:white;
 		padding-top:13px;
-		margin-bottom:20px;
+		margin-bottom:40px;
 		background-color:#414141;
 		border-radius:3px;
 	}
@@ -324,7 +331,7 @@
 	}
 
 
-	/*---------------------main1---------------------*/
+	/*----------------------main1----------------------*/
 	#article h1{
 		font-size:38px;
 	}
@@ -395,7 +402,7 @@
 	}
 
 
-	/*---------------------main2---------------------*/
+	/*----------------------main2----------------------*/
 	#about_me2 {
 		float:left;
 		margin-top:10px;
@@ -425,6 +432,8 @@
 		font-size:34px;
 		border:none;
 		border-bottom:1px solid #a1a1a1;
+		white-space:nowrap;
+		overflow-x:hidden;
 	}
 	#write_title:focus {
 		box-shadow:0 0 8px #4499ee;
@@ -523,4 +532,77 @@
 	#itnpic {
 		display:none;
 		margin-bottom:-1px;
+	}
+
+	/*----------------------main3----------------------*/
+	#main3>div {
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom:25px;
+		width:800px;
+	}
+	.table_button {
+		float:right;
+		padding:4px 22px;
+		margin-left:10px;
+		background-color:#414141;
+		border-radius:20px;
+		color:white;
+		cursor:pointer;
+	}
+	.table_button:hover {
+		background-color:grey;
+	}
+	#main3 ul {
+		border-bottom:solid #e1e1e1;
+	}
+	#main3 li {
+		float:left;
+		width:105px;
+		padding:8px 0;
+		font-size:18px;
+		text-align:center;
+		font-weight:bold;
+		cursor:pointer;
+	}
+	#main3 p {
+		position:relative;
+		top:4px;
+		left:12px;
+		width:75px;
+		border:solid;
+		border-radius:5px;
+	}
+	#condition {
+		padding:10px 30px;
+		height:200px;
+		background-color:#e1e1e1;
+		border-radius:5px;
+	}
+	#condition table {
+		width:740px;
+		margin-top:10px;
+	}
+	#main3>div>table {
+		display:none;
+		margin-top:15px;
+		width:800px;
+		text-align:left;
+		text-indent:5px;
+		border-collapse:collapse;
+		table-layout:fixed;
+		cursor:default;
+	}
+	#main3 th {
+		padding:4px 0;
+		background-color:#c1c1c1;
+	}
+	#main3 td {
+		padding:4px 0;
+		text-overflow:ellipsis;
+		overflow:hidden;
+		white-space:nowrap;
+	}
+	.even {
+		background-color:#e1e1e1;
 	}

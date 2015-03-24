@@ -6,7 +6,7 @@
 <title>后台页</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="./css/blog.css" rel="stylesheet">
+<link href="./css/back_end.css" rel="stylesheet">
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
 </script>
 </head>
@@ -726,13 +726,11 @@
         		formulabar.style.display="block";
         		main.style.display="none";
         		main1.style.display="block";
-        		base=document.body.clientWidth;
-        		titletop.style.width=base-65+"px";
         		nav[0].style.display="none";
         		nav[1].style.display="block";
         		articletitle.innerText=this.innerText;
         		anchor=document.body.scrollTop;
-        		window.scrollTo(0,0);
+        		resize();
         	}
         }
 

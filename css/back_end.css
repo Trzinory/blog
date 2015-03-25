@@ -447,6 +447,89 @@
 		border:none;
 		overflow-y:hidden;
 	}
+	
+
+	/*----------------------main3----------------------*/
+	#main3>div {
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom:25px;
+		width:800px;
+	}
+	.table_button {
+		float:right;
+		padding:4px 22px;
+		margin-left:10px;
+		background-color:#414141;
+		border-radius:20px;
+		color:white;
+		cursor:pointer;
+	}
+	.table_button:hover {
+		background-color:grey;
+	}
+	#child_class_control{
+		display:none;
+	}
+	#main3 ul {
+		border-bottom:solid #e1e1e1;
+	}
+	#main3 li {
+		float:left;
+		width:105px;
+		padding:8px 0;
+		font-size:18px;
+		text-align:center;
+		font-weight:bold;
+		cursor:pointer;
+	}
+	#main3 p {
+		position:relative;
+		top:4px;
+		left:12px;
+		width:75px;
+		border:solid;
+		border-radius:5px;
+	}
+	#condition {
+		padding:10px 30px;
+		height:200px;
+		background-color:#e1e1e1;
+		border-radius:5px;
+	}
+	#condition table {
+		width:740px;
+		margin-top:10px;
+	}
+	#main3>div>table {
+		display:none;
+		margin-top:15px;
+		margin-bottom:15px;
+		width:800px;
+		text-align:left;
+		text-indent:5px;
+		border-collapse:collapse;
+		table-layout:fixed;
+		cursor:default;
+	}
+	#main3>div>table th {
+		font-size:15px;
+	}
+	#main3 th {
+		padding:4px 0;
+		background-color:#c1c1c1;
+	}
+	#main3 td {
+		padding:4px 0;
+		text-overflow:ellipsis;
+		overflow:hidden;
+		white-space:nowrap;
+	}
+	.even {
+		background-color:#e1e1e1;
+	}
+
+	/*-----------------------popup----------------------*/
 	#popup {
 		display:none;
 	}
@@ -457,26 +540,25 @@
 		width:100%;
 		height:100%;
 		background-color:#414141;
-		opacity:0.4;
+		opacity:0.2;
 		z-index:99;
 	}
 	#popup_top {
 		position:fixed;
 		left:50%;
 		top:50%;
-		margin:-150px 0 0 -174.5px;
+		margin:0 0 0 -174.5px;
 		z-index:100;
 	}
 	#popup_top>div {
 		display:none;
 		width:420px;
-		height:300px;
 		border:solid #a1a1a1 1px;
 		background-color:white;
-		box-shadow:0 0 5px #a1a1a1;
+		box-shadow:0 0 10px black;
 	}
 	#popup_top>div>h2 {
-		margin-top:35px;
+		margin-top:25px;
 		text-align:center;
 		color:#414141;
 	}
@@ -503,9 +585,10 @@
 	.link input:focus {
 		outline:none;
 	}
-	#popup_top>div>p {
+	#popup_top>div>span {
 		float:right;
 		margin-top:15px;
+		margin-bottom:20px;
 		color:#a1a1a1;
 	}
 	.popup_confirm {
@@ -547,76 +630,59 @@
 		display:none;
 		margin-bottom:-1px;
 	}
-
-	/*----------------------main3----------------------*/
-	#main3>div {
-		margin-left:auto;
-		margin-right:auto;
-		margin-bottom:25px;
-		width:800px;
-	}
-	.table_button {
-		float:right;
-		padding:4px 22px;
-		margin-left:10px;
-		background-color:#414141;
-		border-radius:20px;
-		color:white;
-		cursor:pointer;
-	}
-	.table_button:hover {
-		background-color:grey;
-	}
-	#main3 ul {
-		border-bottom:solid #e1e1e1;
-	}
-	#main3 li {
-		float:left;
-		width:105px;
-		padding:8px 0;
-		font-size:18px;
-		text-align:center;
-		font-weight:bold;
-		cursor:pointer;
-	}
-	#main3 p {
-		position:relative;
-		top:4px;
-		left:12px;
-		width:75px;
-		border:solid;
-		border-radius:5px;
-	}
-	#condition {
-		padding:10px 30px;
-		height:200px;
-		background-color:#e1e1e1;
-		border-radius:5px;
-	}
-	#condition table {
-		width:740px;
-		margin-top:10px;
-	}
-	#main3>div>table {
+	#pop_box p {
 		display:none;
-		margin-top:15px;
-		width:800px;
-		text-align:left;
-		text-indent:5px;
-		border-collapse:collapse;
-		table-layout:fixed;
-		cursor:default;
+		margin:45px auto;
+		width:350px;
+		text-align:center;
 	}
-	#main3 th {
-		padding:4px 0;
-		background-color:#c1c1c1;
+	#pop_box h2 {
+		display:none;
 	}
-	#main3 td {
-		padding:4px 0;
-		text-overflow:ellipsis;
-		overflow:hidden;
-		white-space:nowrap;
+	#edit_box h2 {
+		display:none;
 	}
-	.even {
-		background-color:#e1e1e1;
+	#edit_box p {
+		display:none;
+		margin:45px auto;
+		width:250px;
+		text-align:center;
+	}
+	#edit_box form {
+		display:none;
+	}
+	#edit_box table {
+		margin:0 auto;
+		width:300px;
+		text-align:center;
+		border-spacing:0 15px;
+		font-size:18px;
+	}
+	#edit_box table input {
+		padding:2px 0 2px 10px;
+		width:160px;
+	}
+	#edit_box select {
+		width:170px;
+	}
+	#add_box h2 {
+		display:none;
+	}
+	#add_box form {
+		display:none;
+	}
+	#add_box table {
+		margin:0 auto;
+		width:300px;
+		text-align:center;
+		border-spacing:0 15px;
+		font-size:18px;
+	}
+	#add_box table input {
+		padding:2px 0 2px 10px;
+		width:160px;
+	}
+	#add_box select {
+		height:29px;
+		width:174px;
 	}

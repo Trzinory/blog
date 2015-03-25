@@ -393,6 +393,11 @@
     				<th>子类数量</th>
     			</tr>
     		</table>
+    		<div id="child_class_control">
+    			<div class="table_button">删除</div>
+    			<div class="table_button">编辑</div>
+    			<div class="table_button">增加</div>
+    		</div>
     		<table id="type_table2">
     			<tr>
     				<th width="15%">操作</th>
@@ -426,8 +431,9 @@
             	    <img src="./img/back_end/font.png">
             	    <input type="text" placeholder="链接文本" />
             	</div>
-            	<p class="popup_confirm">确认</p>
-            	<p class="popup_cancel">取消</p>
+            	<span class="popup_confirm">确认</span>
+            	<span class="popup_cancel">取消</span>
+            	<p class="clear"></p>
         	</div>
         	<div id="pic_box">
             	<h2>插入图片</h2>
@@ -437,13 +443,133 @@
             	    <p id="itnup"><b>网络图片</b></p>
             	    <div class="clear"></div>
             	</div>
-            	<div id="lctpic" class="clear">选择图片上传</div>
+            	<div id="lctpic">选择图片上传</div>
             	<div class="link" id="itnpic">
             	    <img src="./img/common/link.png">
             	    <input type="text" placeholder="图片链接" />
             	</div>
-            	<p class="popup_confirm">确认</p>
-            	<p class="popup_cancel">取消</p>
+            	<span class="popup_confirm">确认</span>
+            	<span class="popup_cancel">取消</span>
+            	<p class="clear"></p>
+        	</div>
+        	<div id="pop_box">
+        		<h2 id="hint_title">提示</h2>
+        		<h2 id="parent_delete_title">删除父类</h2>
+        		<h2 id="child_delete_title">删除子类</h2>
+        		<p id="account_delete_hint">删除后账户数据将无法恢复</p>
+        		<p id="parent_delete_hint">该父类下的子类会自动删除，<br>被删除分类下的文章会自动并入未分类项。</p>
+        		<p id="child_delete_hint">被删除分类下的文章会自动并入未分类项。</p>
+        		<p id="comment_delete_hint">确认删除所选数据？<br>请注意删除后无法恢复！</p>
+            	<span class="popup_confirm">确认</span>
+            	<span class="popup_cancel">取消</span>
+            	<div class="clear"></div>
+        	</div>
+        	<div id="edit_box">
+        		<h2 id="hint_title">提示</h2>
+        		<h2 id="account_edit_title">编辑</h2>
+        		<h2 id="parent_edit_title">编辑父类</h2>
+        		<h2 id="child_edit_title">编辑子类</h2>
+        		<p id="account_edit_hint">可能你选择编辑项超过一个，<br>一次只能编辑一个账户。</p>
+        		<p id="class_edit_hint">可能你选择编辑项超过一个，<br>一次只能编辑一个分类。</p>
+        		<form id="account_edit_form">
+        			<table id="account_edit_table">
+        				<tr>
+        					<td width="40%">帐号:</td>
+        					<td></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">密码:</td>
+        					<td><input type="text" maxlength="15"></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">确认密码:</td>
+        					<td><input type="text" maxlength="15"></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">昵称:</td>
+        					<td><input type="text" maxlength="10"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<form id="parent_edit_form">
+        			<table id="parent_edit_table">
+        				<tr>
+        					<td>父类名:</td>
+        					<td><input type="text"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<form id="child_edit_form">
+        			<table id="child_edit_table">
+        				<tr>
+        					<td>父类名:</td>
+        					<td>
+        						<select>
+        							<option>label</option>
+        						</select>
+        					</td>
+        				</tr>
+        				<tr>
+        					<td>子类名:</td>
+        					<td><input type="text"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<span class="popup_confirm">确认</span>
+            	<span class="popup_cancel">取消</span>
+            	<div class="clear"></div>
+        	</div>
+        	<div id="add_box">
+        		<h2 id="account_add_title">增加</h2>
+        		<h2 id="parent_add_title">增加父类</h2>
+        		<h2 id="child_add_title">增加子类</h2>
+        		<form id="account_add_form">
+        			<table id="account_add_table">
+        				<tr>
+        					<td width="40%">帐号:</td>
+        					<td><input type="text" maxlength="15"></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">密码:</td>
+        					<td><input type="text" maxlength="15"></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">确认密码:</td>
+        					<td><input type="text" maxlength="15"></td>
+        				</tr>
+        				<tr>
+        					<td width="40%">昵称:</td>
+        					<td><input type="text" maxlength="10"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<form id="parent_add_form">
+        			<table>
+        				<tr>
+        					<td>父类名:</td>
+        					<td><input type="text"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<form id="child_add_form">
+        			<table>
+        				<tr>
+        					<td>父类名:</td>
+        					<td>
+        						<select>
+        							<option>label</option>
+        						</select>
+        					</td>
+        				</tr>
+        				<tr>
+        					<td>子类名:</td>
+        					<td><input type="text"></td>
+        				</tr>
+        			</table>
+        		</form>
+        		<span class="popup_confirm">确认</span>
+            	<span class="popup_cancel">取消</span>
+            	<p class="clear"></p>
         	</div>
         </div>
     </div>

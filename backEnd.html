@@ -280,6 +280,10 @@
     			<li>评论</li>
     			<li>类别</li>
     			<li>账户</li>
+    			<div id="condition_switch">
+    				<img src="./img/back_end/plus.png">
+    				<span>条件</span>
+    			</div>
     			<p class="clear"></p>
     		</ul>
     	</div>
@@ -310,11 +314,133 @@
     							<option></option>
     						</select>
     					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
     					<td width="27%">1</td>
+    					<td>1</td>
+    				</tr>
+    				<tr>
+    					<td width="7%">
+    						<input type="checkbox" />
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>标题</option>
+    							<option>创建时间</option>
+    							<option>用户昵称</option>
+    							<option>邮箱</option>
+    							<option>评论</option>
+    						</select>
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>等于</option>
+    							<option>在…之间</option>
+    							<option>是</option>
+    							<option></option>
+    							<option></option>
+    						</select>
+    					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
+    					<td>1</td>
+    				</tr>
+    				<tr>
+    					<td width="7%">
+    						<input type="checkbox" />
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>标题</option>
+    							<option>创建时间</option>
+    							<option>用户昵称</option>
+    							<option>邮箱</option>
+    							<option>评论</option>
+    						</select>
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>等于</option>
+    							<option>在…之间</option>
+    							<option>是</option>
+    							<option></option>
+    							<option></option>
+    						</select>
+    					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
+    					<td width="27%">1</td>
+    					<td>1</td>
+    				</tr>
+    				<tr>
+    					<td width="7%">
+    						<input type="checkbox" />
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>标题</option>
+    							<option>创建时间</option>
+    							<option>用户昵称</option>
+    							<option>邮箱</option>
+    							<option>评论</option>
+    						</select>
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>等于</option>
+    							<option>在…之间</option>
+    							<option>是</option>
+    							<option></option>
+    							<option></option>
+    						</select>
+    					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
+    					<td width="27%">1</td>
+    					<td>1</td>
+    				</tr>
+    				<tr>
+    					<td width="7%">
+    						<input type="checkbox" />
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>标题</option>
+    							<option>创建时间</option>
+    							<option>用户昵称</option>
+    							<option>邮箱</option>
+    							<option>评论</option>
+    						</select>
+    					</td>
+    					<td width="18%">
+    						<select>
+    							<option>等于</option>
+    							<option>在…之间</option>
+    							<option>是</option>
+    							<option></option>
+    							<option></option>
+    						</select>
+    					</td>
+    					<td width="27%">
+    						<input type="text">
+    					</td>
     					<td width="27%">1</td>
     					<td>1</td>
     				</tr>
     			</table>
+    		</div>
+    	</div>
+    	<div>
+    		<div id="account_hint">
+    			<img src="./img/back_end/info.png">
+    			<p>开源博客系统的默认帐号密码都是admin admin，为了确保帐号安全，第一次登录创建个人的帐号密码后，请修改admin的密码。</p>
     		</div>
     	</div>
     	<div>
@@ -384,7 +510,7 @@
     				<th>创建时间</th>
     			</tr>
     		</table>
-    		<table id="type_table1">
+    		<table id="parent_table">
     			<tr>
     				<th width="15%">操作</th>
     				<th width="15%">序号</th>
@@ -398,7 +524,7 @@
     			<div class="table_button">编辑</div>
     			<div class="table_button">增加</div>
     		</div>
-    		<table id="type_table2">
+    		<table id="child_table">
     			<tr>
     				<th width="15%">操作</th>
     				<th width="15%">序号</th>
@@ -472,7 +598,7 @@
         		<p id="account_edit_hint">可能你选择编辑项超过一个，<br>一次只能编辑一个账户。</p>
         		<p id="class_edit_hint">可能你选择编辑项超过一个，<br>一次只能编辑一个分类。</p>
         		<form id="account_edit_form">
-        			<table id="account_edit_table">
+        			<table>
         				<tr>
         					<td width="40%">帐号:</td>
         					<td></td>
@@ -492,26 +618,25 @@
         			</table>
         		</form>
         		<form id="parent_edit_form">
-        			<table id="parent_edit_table">
+        			<table>
         				<tr>
         					<td>父类名:</td>
-        					<td><input type="text"></td>
+        					<td><input type="text" id="parent_edit_input"></td>
         				</tr>
         			</table>
         		</form>
         		<form id="child_edit_form">
-        			<table id="child_edit_table">
+        			<table>
         				<tr>
         					<td>父类名:</td>
         					<td>
-        						<select>
-        							<option>label</option>
+        						<select id="child_edit_select">
         						</select>
         					</td>
         				</tr>
         				<tr>
         					<td>子类名:</td>
-        					<td><input type="text"></td>
+        					<td><input type="text" id="child_edit_input"></td>
         				</tr>
         			</table>
         		</form>
@@ -547,7 +672,7 @@
         			<table>
         				<tr>
         					<td>父类名:</td>
-        					<td><input type="text"></td>
+        					<td><input type="text" id="parent_add_input"></td>
         				</tr>
         			</table>
         		</form>
@@ -556,14 +681,13 @@
         				<tr>
         					<td>父类名:</td>
         					<td>
-        						<select>
-        							<option>label</option>
+        						<select id="child_add_select">
         						</select>
         					</td>
         				</tr>
         				<tr>
         					<td>子类名:</td>
-        					<td><input type="text"></td>
+        					<td><input type="text" id="child_add_input"></td>
         				</tr>
         			</table>
         		</form>

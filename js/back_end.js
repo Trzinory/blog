@@ -308,61 +308,86 @@ window.onload=function(){
         	$("#main3 li:eq(0)").click(function(){
         		flag=1;
         		$("#main3 ul p").animate({left:"12px"});
+        		$("#condition_switch").css({display:"block"});
+        		$("#account_hint").css({display:"none"});
         		$("#article_table").css({display:"inline-table"});
         		$("#comments_table").css({display:"none"});
-        		$("#type_table1").css({display:"none"});
+        		$("#parent_table").css({display:"none"});
         		$("#child_class_control").css({display:"none"});
-        		$("#type_table2").css({display:"none"});
+        		$("#child_table").css({display:"none"});
         		$("#account_table").css({display:"none"});
         		$(".table_button:eq(2)").css({display:"none"});
         		$(".table_button:eq(3)").css({display:"none"});
         		$(".table_button:eq(4)").css({display:"none"});
+        		resize();
         	});
         	$("#main3 li:eq(1)").click(function(){
         		flag=2;
         		$("#main3 ul p").animate({left:"117px"});
+        		$("#condition_switch").css({display:"block"});
+        		$("#account_hint").css({display:"none"});
         		$("#article_table").css({display:"none"});
         		$("#comments_table").css({display:"inline-table"});
-        		$("#type_table1").css({display:"none"});
+        		$("#parent_table").css({display:"none"});
         		$("#child_class_control").css({display:"none"});
-        		$("#type_table2").css({display:"none"});
+        		$("#child_table").css({display:"none"});
         		$("#account_table").css({display:"none"});
         		$(".table_button:eq(2)").css({display:"block"});
         		$(".table_button:eq(3)").css({display:"none"});
         		$(".table_button:eq(4)").css({display:"none"});
+        		resize();
         	});
         	$("#main3 li:eq(2)").click(function(){
         		flag=3;
         		$("#main3 ul p").animate({left:"222px"});
+        		$("#condition_switch").css({display:"none"});
+        		$("#condition").css({display:"none"});
+        		$("#account_hint").css({display:"none"});
         		$("#article_table").css({display:"none"});
         		$("#comments_table").css({display:"none"});
-        		$("#type_table1").css({display:"inline-table"});
+        		$("#parent_table").css({display:"inline-table"});
         		$("#child_class_control").css({display:"block"});
-        		$("#type_table2").css({display:"inline-table"});
+        		$("#child_table").css({display:"inline-table"});
         		$("#account_table").css({display:"none"});
         		$(".table_button:eq(2)").css({display:"block"});
         		$(".table_button:eq(3)").css({display:"block"});
         		$(".table_button:eq(4)").css({display:"block"});
+        		resize();
         	});
         	$("#main3 li:eq(3)").click(function(){
         		flag=4;
         		$("#main3 ul p").animate({left:"327px"});
+        		$("#condition_switch").css({display:"none"});
+        		$("#condition").css({display:"none"});
+        		$("#account_hint").css({display:"block"});
         		$("#article_table").css({display:"none"});
         		$("#comments_table").css({display:"none"});
-        		$("#type_table1").css({display:"none"});
+        		$("#parent_table").css({display:"none"});
         		$("#child_class_control").css({display:"none"});
-        		$("#type_table2").css({display:"none"});
+        		$("#child_table").css({display:"none"});
         		$("#account_table").css({display:"inline-table"});
         		$(".table_button:eq(2)").css({display:"block"});
         		$(".table_button:eq(3)").css({display:"block"});
         		$(".table_button:eq(4)").css({display:"block"});
+        		resize();
+        	});
+        	$("#condition_switch").click(function(){
+        		if($("#condition").css("display")=="none"){
+        			$("#condition").css({display:"block"});
+        		}
+        		else {
+        			$("#condition").css({display:"none"});
+        		}
+        		resize();
         	});
 
     	//表格按钮功能
-    	var pop=document.getElementsByClassName("table_button")[2];
-    	var edit=document.getElementsByClassName("table_button")[3];
-    	var add=document.getElementsByClassName("table_button")[4];
-    	var popbox=document.getElementById("pop_box");
+    	//boxData记录当前弹出框对应的表格、操作和操作行序号
+    	var boxData=new Array();
+    	//count记录打勾数，number记录打勾行的序号
+    	var count=0,number=0;
+    	var parenttable=document.getElementById("parent_table");
+    	var childtable=document.getElementById("child_table");
     	$(".table_button:eq(2)").click(function(){
     		//删除按钮
     		if(flag==4){
@@ -385,8 +410,27 @@ window.onload=function(){
     			boxShow(id);
     		}
     		if(flag==3){
-    			id=["edit_box","parent_edit_title","parent_edit_form"];
-    			boxShow(id);
+    			count=0;
+    			for(var i=1;i<parenttable.rows.length;i++){
+    				if(parenttable.rows[i].cells[0].childNodes[0].checked){
+    					number=i;
+    					count++;
+    					if(count>=2){
+    						break;
+    					}
+    				}
+    			}
+    			if(count>=2){
+    				id=["edit_box","hint_title","class_edit_hint"]
+    				boxShow(id);
+    				boxData=[];
+    			}
+    			else if(count==1) {
+    				id=["edit_box","parent_edit_title","parent_edit_form"];
+    				boxShow(id);
+    				$("#parent_edit_form input:last").focus();
+    				boxData=["parent","edit",number];
+    			}
     		}
     	});
     	$(".table_button:eq(4)").click(function(){
@@ -398,6 +442,8 @@ window.onload=function(){
     		if(flag==3){
     			id=["add_box","parent_add_title","parent_add_form"];
     			boxShow(id);
+    			$("#parent_add_form input:last").focus();
+    			boxData=["parent","add"];
     		}
     	});
     	$(".table_button:eq(5)").click(function(){
@@ -410,8 +456,27 @@ window.onload=function(){
     	$(".table_button:eq(6)").click(function(){
     		//子类的编辑按钮
     		if(flag==3){
-    			id=["edit_box","child_edit_title","child_edit_form"];
-    			boxShow(id);
+    			count=0;
+    			for(var i=1;i<childtable.rows.length;i++){
+    				if(childtable.rows[i].cells[0].childNodes[0].checked){
+    					number=i;
+    					count++;
+    					if(count>=2){
+    						break;
+    					}
+    				}
+    			}
+    			if(count>=2){
+    				id=["edit_box","hint_title","class_edit_hint"]
+    				boxShow(id);
+    				boxData=[];
+    			}
+    			else if(count==1) {
+    				id=["edit_box","child_edit_title","child_edit_form"];
+    				boxShow(id);
+    				$("#child_edit_form input:last").focus();
+    				boxData=["child","edit",number];
+    			}
     		}
     	});
     	$(".table_button:eq(7)").click(function(){
@@ -419,28 +484,182 @@ window.onload=function(){
     		if(flag==3){
     			id=["add_box","child_add_title","child_add_form"];
     			boxShow(id);
+    			$("#child_add_form input:last").focus();
+    			boxData=["child","add"]
     		}
     	});
 
-    	//box在不关闭的情况下转换内容
+    	//确认按钮事件
     	$(".popup_confirm").click(function(){
-        	boxHide(id);
-        	id=[];
+    		var str=new Array();
+    		var table;
+    		var parent;
+    		if(boxData[0]=="parent"&&boxData[1]=="add"){
+    			str[0]=document.getElementById(boxData[0]+"_"+boxData[1]+"_input").value;
+    			table=document.getElementById(boxData[0]+"_table");
+    			if(!check(table,str,0)){
+    				return;
+    			}
+    			newTr(table,str);
+    			parent="<option>"+str[0]+"</option>";
+    			$("#child_edit_form select").append(parent);
+    			$("#child_add_form select").append(parent);
+        		boxHide(id);
+        		id=[];
+    		}
+    		else if(boxData[0]=="child"&&boxData[1]=="add"){
+    			str[0]=document.getElementById("child_add_select").value;
+    			str[1]=document.getElementById("child_add_input").value;
+    			table=document.getElementById(boxData[0]+"_table");
+    			if(!check(table,str,1)){
+    				return;
+    			}
+    			newTr(table,str);
+        		boxHide(id);
+        		id=[];
+    		}
+    		else if(boxData[0]=="parent"&&boxData[1]=="edit"){
+    			str[0]=document.getElementById("parent_edit_input").value;
+    			table=document.getElementById(boxData[0]+"_table");
+    			if(!check(table,str,0)){
+    				return;
+    			}
+    			parent=table.rows[boxData[2]].cells[2].textContent;
+    			//先改子类表格的相关父类名
+    			for(var i=1;i<childtable.rows.length;i++){
+    				if(childtable.rows[i].cells[2].textContent==parent){
+    					childtable.rows[i].cells[2].textContent=str[0];
+    				}
+    			}
+    			for(var i=0;i<$("#child_add_form option").length;i++){
+    				if($("#child_add_form option:eq("+i+")").text()==parent){
+    					$("#child_add_form option:eq("+i+")").text(str[0]);
+    					$("#child_edit_form option:eq("+i+")").text(str[0]);
+    				}
+    			}
+    			//再改父类表格的父类名
+    			changeTr(table,str,boxData[2]);
+        		boxHide(id);
+        		id=[];
+    		}
+    		else if(boxData[0]=="child"&&boxData[1]=="edit"){
+    			str[0]=document.getElementById("child_edit_select").value;
+    			str[1]=document.getElementById("child_edit_input").value;
+    			table=document.getElementById(boxData[0]+"_table");
+    			if(!check(table,str,1)){
+    				return;
+    			}
+    			parent=table.rows[boxData[2]].cells[2].textContent;
+    			var same=parent==str[0]?1:0;
+    			changeTr(table,str,boxData[2]);
+    			//父类改动的话，把该子类的文章数叠加到现在的父类上
+    			if(!same){
+    				for(var i=1;i<parenttable.rows.length;i++){
+    					//找出子类增加的父类
+    					if(parenttable.rows[i].cells[2].textContent==str[0]){
+    						parenttable.rows[i].cells[4].textContent
+    						=parseInt(parenttable.rows[i].cells[4].textContent)
+    						+parseInt(table.rows[boxData[2]].cells[4].textContent);
+    					}
+    					//找出子类减少的父类
+    					else if(parenttable.rows[i].cells[2].textContent==parent){
+    						parenttable.rows[i].cells[4].textContent
+    						=parseInt(parenttable.rows[i].cells[4].textContent)
+    						-parseInt(table.rows[boxData[2]].cells[4].textContent);
+    					}
+    				}
+    			}
+        		boxHide(id);
+        		id=[];
+    		}
+    		else {
+        		boxHide(id);
+        		id=[];
+        	}
     	});
 
     	//函数区
     	function boxShow(id){
+    		//控制弹出框显示
     		popup.style.display="block";
     		for(var i=0;i<id.length;i++){
     			$("#"+id[i]).css({"display":"block"});
+    			if($("#"+id[i]+" input").attr("type")=="text"){
+    				$("#"+id[i]+" input").val("");
+    			}
     		}
     		var h=$("#"+id[0])[0].scrollHeight;
     		$("#"+id[0]).css({"margin-top":"-"+h/2+"px"});
     	}
     	function boxHide(id){
+    		//控制弹出框关闭
     		popup.style.display="none";
     		for(var i=0;i<id.length;i++){
     			$("#"+id[i]).css({"display":"none"});
+    		}
+    	}
+    	function newTd(string){
+    		var td=document.createElement("td");
+    		if(string=="input"){
+    			var input=document.createElement("input");
+    			input.type="checkbox";
+    			td.appendChild(input);
+    		}
+    		else {
+    			td.textContent=string;
+    		}
+    		return td;
+    	}
+    	function getTr(table,arr){
+    		//把数据插入表格
+    		var tr=document.createElement("tr");
+    		tr.appendChild(newTd("input"));
+    		var num=table.rows.length;
+    		tr.appendChild(newTd(num));
+    		for(var i=0;i<arr.length;i++){
+    			tr.appendChild(newTd(arr[i]));
+    		}
+    		table.appendChild(tr);
+    	}
+    	function newTr(table,str){
+    		var tr=document.createElement("tr");
+    		tr.appendChild(newTd("input"));
+    		var num=table.rows.length;
+    		tr.appendChild(newTd(num));
+    		for(var i=0;i<str.length;i++){
+    			tr.appendChild(newTd(str[i]))
+    		}
+    		var len=table.rows[0].cells.length-2-str.length;
+    		for(var i=0;i<len;i++){
+    			tr.appendChild(newTd("0"));
+    		}
+    		table.appendChild(tr);
+    	}
+    	function changeTr(table,str,number){
+    		table.rows[number].cells[2].textContent=str[0];
+    		if(str[1]){
+    			table.rows[number].cells[3].textContent=str[1];
+    		}
+    	}
+    	function check(table,str,n){
+    		if(n==0){
+    			for(var i=1;i<table.rows.length;i++){
+    				if(table.rows[i].cells[2].textContent.toLowerCase()==str[0].toLowerCase()){
+    					alert("父类名重复！");
+    					return false;
+    				}
+    			}
+    			return true;
+    		}
+    		if(n==1){
+    			for(var i=1;i<table.rows.length;i++){
+    				if(table.rows[i].cells[3].textContent.toLowerCase()==str[1].toLowerCase()
+    					&&table.rows[i].cells[2].textContent.toLowerCase()==str[0].toLowerCase()){
+    					alert("该父类中子类名重复！");
+    					return false;
+    				}
+    			}
+    			return true;
     		}
     	}
 }

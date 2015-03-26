@@ -483,7 +483,23 @@
 		font-weight:bold;
 		cursor:pointer;
 	}
-	#main3 p {
+	#condition_switch {
+		float:right;
+		padding:5px 22px;
+		width:60px;
+		text-align:center;
+		color:white;
+		background-color:#414141;
+		border-radius:20px;
+		cursor:pointer;
+	}
+	#condition_switch:hover {
+		background-color:grey;
+	}
+	#condition_switch img {
+		margin-right:5px;
+	}
+	#main3 ul p {
 		position:relative;
 		top:4px;
 		left:12px;
@@ -492,6 +508,7 @@
 		border-radius:5px;
 	}
 	#condition {
+		display:none;
 		padding:10px 30px;
 		height:200px;
 		background-color:#e1e1e1;
@@ -526,7 +543,21 @@
 		white-space:nowrap;
 	}
 	.even {
-		background-color:#e1e1e1;
+		background-color:#f1f1f1;
+	}
+	#account_hint{
+		display:none;
+		font-size:15px;
+		padding:10px 20px;
+		background-color:#d1d1d1;
+		box-shadow:0 3px 4px black;
+		border-radius:10px;
+		cursor:default;
+	}
+	#account_hint img {
+		float:left;
+		margin-right:18px;
+		margin-top:5px;
 	}
 
 	/*-----------------------popup----------------------*/
@@ -663,7 +694,8 @@
 		width:160px;
 	}
 	#edit_box select {
-		width:170px;
+		height:29px;
+		width:174px;
 	}
 	#add_box h2 {
 		display:none;

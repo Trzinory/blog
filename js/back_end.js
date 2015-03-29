@@ -16,15 +16,25 @@ window.onload=function(){
         main1.style.minHeight=window.innerHeight-150+"px";
         main2.style.minHeight=window.innerHeight-150+"px";
     	window.onresize=function(){
+    		main2.style.minHeight=window.innerHeight-150+"px";
     		base=document.body.clientWidth;
-            formulabar.style.width=base-65+"px";
-            titletop.style.width=base-65+"px";
-            main2.style.width=base-65+"px";
-            main3.style.width=base-65+"px";
             fill[0].style.width=(base-65-600)/2+"px";
     		fill[1].style.width=(base-65-600)/2+"px";
     		fill[2].style.width=(base-65-600)/2+"px";
     		fill[3].style.width=(base-65-600)/2+"px";
+            formulabar.style.width=base-65+"px";
+            titletop.style.width=base-65+"px";
+            main2.style.width=base-65+"px";
+            main3.style.width=base-65+"px";
+            base=document.body.clientWidth;
+            fill[0].style.width=(base-65-600)/2+"px";
+    		fill[1].style.width=(base-65-600)/2+"px";
+    		fill[2].style.width=(base-65-600)/2+"px";
+    		fill[3].style.width=(base-65-600)/2+"px";
+            formulabar.style.width=base-65+"px";
+            titletop.style.width=base-65+"px";
+            main2.style.width=base-65+"px";
+            main3.style.width=base-65+"px";
             if(base-65<600){
                 //title.style.width=base-65+"px";
                 content2.style.width=base-65+"px";
@@ -36,6 +46,7 @@ window.onload=function(){
         	formulabar.style.width=base-65+"px";
             titletop.style.width=base-65+"px";
             main2.style.width=base-65+"px";
+            //main2.style.minHeight=window.innerHeight-150+"px";
             main3.style.width=base-65+"px";
             fill[0].style.width=(base-65-600)/2+"px";
     		fill[1].style.width=(base-65-600)/2+"px";
@@ -83,10 +94,12 @@ window.onload=function(){
         $(".popup_cancel").click(function(){
         	boxHide(id);
         	id=[];
+        	boxData=[];
         });
         $("#popup_bottom").click(function(){
         	boxHide(id);
         	id=[];
+        	boxData=[];
         });
 
         var nav2=document.getElementsByClassName("nav2");
@@ -385,7 +398,8 @@ window.onload=function(){
     	//boxData记录当前弹出框对应的表格、操作和操作行序号
     	var boxData=new Array();
     	//count记录打勾数，number记录打勾行的序号
-    	var count=0,number=0;
+    	var count=0;
+    	var number=new Array();
     	var parenttable=document.getElementById("parent_table");
     	var childtable=document.getElementById("child_table");
     	$(".table_button:eq(2)").click(function(){
@@ -395,8 +409,15 @@ window.onload=function(){
     			boxShow(id);
     		}
     		if(flag==3){
+    			count=0;
+    			for(var i=2;i<parenttable.rows.length;i++){
+    				if(parenttable.rows[i].cells[0].childNodes[0].checked){
+    					number[count++]=i;
+    				}
+    			}
     			id=["pop_box","parent_delete_title","parent_delete_hint"];
     			boxShow(id);
+    			boxData=["parent","delete",number];
     		}
     		if(flag==2){
     			id=["pop_box","hint_title","comment_delete_hint"];
@@ -411,9 +432,9 @@ window.onload=function(){
     		}
     		if(flag==3){
     			count=0;
-    			for(var i=1;i<parenttable.rows.length;i++){
+    			for(var i=2;i<parenttable.rows.length;i++){
     				if(parenttable.rows[i].cells[0].childNodes[0].checked){
-    					number=i;
+    					number[0]=i;
     					count++;
     					if(count>=2){
     						break;
@@ -459,7 +480,7 @@ window.onload=function(){
     			count=0;
     			for(var i=1;i<childtable.rows.length;i++){
     				if(childtable.rows[i].cells[0].childNodes[0].checked){
-    					number=i;
+    					number[0]=i;
     					count++;
     					if(count>=2){
     						break;
@@ -506,6 +527,7 @@ window.onload=function(){
     			$("#child_add_form select").append(parent);
         		boxHide(id);
         		id=[];
+        		boxData=[];
     		}
     		else if(boxData[0]=="child"&&boxData[1]=="add"){
     			str[0]=document.getElementById("child_add_select").value;
@@ -517,6 +539,7 @@ window.onload=function(){
     			newTr(table,str);
         		boxHide(id);
         		id=[];
+        		boxData=[];
     		}
     		else if(boxData[0]=="parent"&&boxData[1]=="edit"){
     			str[0]=document.getElementById("parent_edit_input").value;
@@ -541,6 +564,7 @@ window.onload=function(){
     			changeTr(table,str,boxData[2]);
         		boxHide(id);
         		id=[];
+        		boxData=[];
     		}
     		else if(boxData[0]=="child"&&boxData[1]=="edit"){
     			str[0]=document.getElementById("child_edit_select").value;
@@ -571,10 +595,12 @@ window.onload=function(){
     			}
         		boxHide(id);
         		id=[];
+        		boxData=[];
     		}
     		else {
         		boxHide(id);
         		id=[];
+        		boxData=[];
         	}
     	});
 
